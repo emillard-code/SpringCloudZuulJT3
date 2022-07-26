@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
@@ -17,14 +18,16 @@ public class ErrorFilter extends ZuulFilter {
     @Override
     public String filterType() {
 
-        return "error";
+        // return "error";
+        return FilterConstants.ERROR_TYPE;
 
     }
 
     @Override
     public int filterOrder() {
 
-        return 1;
+        // return 1;
+        return FilterConstants.SEND_ERROR_FILTER_ORDER - 1;
 
     }
 

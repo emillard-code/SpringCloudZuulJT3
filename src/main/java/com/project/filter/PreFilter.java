@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
@@ -17,14 +18,16 @@ public class PreFilter extends ZuulFilter {
     @Override
     public String filterType() {
 
-        return "pre";
+        // return "pre";
+        return FilterConstants.PRE_TYPE;
 
     }
 
     @Override
     public int filterOrder() {
 
-        return 1;
+        // return 1;
+        return FilterConstants.PRE_DECORATION_FILTER_ORDER - 1;
 
     }
 
